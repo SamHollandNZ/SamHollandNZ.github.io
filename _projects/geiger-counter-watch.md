@@ -8,25 +8,8 @@ featured: true
 status: "Built, 2023–2024"
 image: /assets/img/geiger-counter-watch/hero.jpg
 image_alt: "Geiger counter watch on a red strap, beside a bare PCB and the two halves of its case"
-specs_title: "Design"
-specs:
-  - label: "Detector"
-    value: "Philips ZP-1310 Geiger-Müller tube"
-  - label: "Bias supply"
-    value: "About 575 V: boost converter and 7-stage multiplier (Maxim AN3757)"
-  - label: "Microcontroller"
-    value: "ATmega4809"
-  - label: "Display"
-    value: "Sharp memory LCD"
-  - label: "Power"
-    value: "LiPo cell with charger, about 2 weeks per charge"
-  - label: "Case"
-    value: "Resin 3D printed, Siraya Tech Blu Clear V2"
-  - label: "Size"
-    value: "45 × 35 × 12 mm, 24 mm strap"
 ---
 
-<!-- DRAFT: written from the November 2026 CV. Check every claim, then delete this comment. -->
 ## Brief
 
 When I found some miniature Geiger-Müller tubes on eBay, I decided that a

@@ -249,8 +249,10 @@ a:hover { color: var(--text-hover); }
   letter-spacing: -0.03em; text-wrap: balance;
 }
 .project__summary { flex: 2 1 320px; min-width: 0; font-size: 19px; color: var(--text-2); text-wrap: pretty; }
+.project__heading .project__summary { flex: none; } /* CV: headline sits under the name */
 
 .project__layout { display: flex; flex-wrap: wrap; gap: 40px 64px; align-items: flex-start; } /* table first in the source, so it sits above the text on a phone */
+.project__layout--single { justify-content: center; } /* no spec table: centre the text column */
 .prose { flex: 999 1 480px; min-width: 0; max-width: 720px; }
 .specs { flex: 1 1 300px; min-width: 0; max-width: 420px; overflow-x: auto; }
 

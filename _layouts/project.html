@@ -19,7 +19,7 @@ layout: default
 
 <div class="stripe-rule" aria-hidden="true"></div>
 
-<div class="project__layout">
+<div class="project__layout{% unless page.specs %} project__layout--single{% endunless %}">
 {% if page.specs %}
 <aside class="specs" aria-label="{{ page.specs_title | default: 'Design targets' }}">
 <table>
