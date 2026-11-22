@@ -1,6 +1,6 @@
 ---
 title: "Micropower gamma spectrometer"
-headline: "A micropower gamma spectrometer, built for another watch"
+headline: "Micropower gamma spectrometer"
 tags: ["Electrical", "Software"]
 summary: "A micropower gamma spectrometer that measures the energy of each gamma ray, built to shrink into a watch."
 order: 1
