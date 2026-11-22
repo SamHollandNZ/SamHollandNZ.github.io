@@ -1,0 +1,13 @@
+{% comment %}
+  Inline SVG icon. Before including this file, assign the variable "icon" to one of:
+  mail, external, download, prev, next. All are 20x20 stroke icons.
+{% endcomment %}
+<svg class="icon" width="16" height="16" viewBox="0 0 20 20" aria-hidden="true" focusable="false">
+{% case icon %}
+{% when "mail" %}<path d="M3 5h14v10H3zM3 6l7 5 7-5"/>
+{% when "external" %}<path d="M8 4H4v12h12v-4M11 4h5v5M16 4l-7 7"/>
+{% when "download" %}<path d="M10 3v10M5 9l5 5 5-5M4 17h12"/>
+{% when "prev" %}<path d="M12 4l-6 6 6 6"/>
+{% when "next" %}<path d="M8 4l6 6-6 6"/>
+{% endcase %}
+</svg>

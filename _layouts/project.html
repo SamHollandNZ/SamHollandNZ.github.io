@@ -1,0 +1,56 @@
+---
+layout: default
+---
+{% assign projects = site.projects | sort: "order" %}
+<article class="project">
+
+<a class="back-link" href="{{ '/portfolio/#projects' | relative_url }}">← All projects</a>
+
+<header class="project__header">
+<div class="project__heading">
+{% assign tags_item = page %}{% include tags.html %}
+<h1 class="project__title">{{ page.headline | default: page.title }}</h1>
+</div>
+<p class="project__summary">{{ page.summary }}</p>
+</header>
+
+{% assign media_item = page %}{% assign media_class = "media--hero" %}{% assign media_lazy = false %}
+{% include media.html %}
+
+<div class="stripe-rule" aria-hidden="true"></div>
+
+<div class="project__layout">
+{% if page.specs %}
+<aside class="specs" aria-label="{{ page.specs_title | default: 'Design targets' }}">
+<table>
+<caption>{{ page.specs_title | default: "Design targets" }}</caption>
+<tbody>
+{% for s in page.specs %}
+<tr><th scope="row">{{ s.label }}</th><td>{{ s.value }}</td></tr>
+{% endfor %}
+{% if page.status %}
+<tr><th scope="row">Status</th><td>{{ page.status }}</td></tr>
+{% endif %}
+</tbody>
+</table>
+</aside>
+{% endif %}
+<div class="prose">
+{{ content }}
+</div>
+</div>
+
+{% assign here = 0 %}
+{% for p in projects %}{% if p.url == page.url %}{% assign here = forloop.index0 %}{% endif %}{% endfor %}
+{% assign prev_i = here | minus: 1 %}
+{% assign next_i = here | plus: 1 %}
+<nav class="pager" aria-label="More projects">
+{% if prev_i >= 0 %}{% assign other = projects[prev_i] %}
+<a class="pager__link" href="{{ other.url | relative_url }}"><span class="pager__dir">← Previous</span><span class="pager__name">{{ other.title }}</span></a>
+{% else %}<span></span>{% endif %}
+{% if next_i < projects.size %}{% assign other = projects[next_i] %}
+<a class="pager__link pager__link--next" href="{{ other.url | relative_url }}"><span class="pager__dir">Next →</span><span class="pager__name">{{ other.title }}</span></a>
+{% endif %}
+</nav>
+
+</article>

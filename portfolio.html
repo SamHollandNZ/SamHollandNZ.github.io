@@ -1,0 +1,81 @@
+---
+layout: default
+permalink: /portfolio/
+---
+{% assign projects = site.projects | sort: "order" %}
+{% assign featured = projects | where: "featured", true %}
+{% assign total = featured.size | prepend: "0" | slice: -2, 2 %}
+
+<section class="intro">
+<h1 class="intro__name">{{ site.first_name }}<br>{{ site.last_name }}</h1>
+<div class="intro__bio">
+<p class="eyebrow">{{ site.role }} · {{ site.location }}</p>
+<p>{{ site.bio }}</p>
+<ul class="facts" aria-label="At a glance">
+{% if site.data.cv.citizenship %}<li>Citizen of {% for c in site.data.cv.citizenship %}{{ c.short | default: c.country }}{% unless forloop.last %} and {% endunless %}{% endfor %}</li>{% endif %}
+<li><a href="{{ '/cv/' | relative_url }}">CV and work history →</a></li>
+</ul>
+{% if site.contact_line and site.contact_line != "" %}<p id="contact" class="contact__line">{{ site.contact_line }}</p>{% endif %}
+</div>
+</section>
+
+{% if featured.size > 0 %}
+<section class="slideshow" data-slideshow data-autoplay="{{ site.slideshow_autoplay_ms | default: 0 }}" aria-roledescription="carousel" aria-label="Featured projects">
+{% for p in featured %}
+{% assign num = forloop.index | prepend: "0" | slice: -2, 2 %}
+<article class="slide" data-slide aria-roledescription="slide" aria-label="{{ forloop.index }} of {{ featured.size }}">
+{% assign media_item = p %}{% assign media_class = "media--hero" %}{% assign media_lazy = false %}{% unless forloop.first %}{% assign media_lazy = true %}{% endunless %}
+{% include media.html %}
+<div class="slide__bar">
+<span class="counter">{{ num }} / {{ total }}</span>
+<div data-controls-slot></div>
+</div>
+<div class="slide__body">
+<div class="slide__heading">
+<div class="eyebrow-row"><p class="eyebrow">Featured</p>{% assign tags_item = p %}{% include tags.html %}</div>
+<h2 class="slide__title"><a href="{{ p.url | relative_url }}">{{ p.headline | default: p.title }}</a></h2>
+</div>
+<div class="slide__aside">
+<p>{{ p.summary }}</p>
+<a class="btn btn--cta" href="{{ p.url | relative_url }}" aria-label="Open build log: {{ p.title | escape }}">Open build log →</a>
+</div>
+</div>
+</article>
+{% endfor %}
+<div class="slideshow__controls" data-controls hidden>
+<div class="slideshow__dots">
+{% for p in featured %}
+<button type="button" class="dot" data-dot aria-label="Show project {{ forloop.index }}: {{ p.title | escape }}"><span></span></button>
+{% endfor %}
+</div>
+<button type="button" class="icon-btn" data-prev aria-label="Previous project">{% assign icon = "prev" %}{% include icon.html %}</button>
+<button type="button" class="icon-btn" data-next aria-label="Next project">{% assign icon = "next" %}{% include icon.html %}</button>
+</div>
+</section>
+{% endif %}
+
+<div class="stripe-rule" aria-hidden="true"></div>
+
+<section id="projects" class="projects">
+<h2 class="visually-hidden">All projects</h2>
+<div class="filters" data-filters hidden>
+<button type="button" class="chip" data-filter="all" aria-pressed="true">All</button>
+{% for t in site.data.tags %}{% assign tag_used = false %}{% for q in projects %}{% if q.tags contains t.name %}{% assign tag_used = true %}{% endif %}{% endfor %}
+{% if tag_used %}<button type="button" class="chip" data-filter="{{ t.name | slugify }}" aria-pressed="false">{{ t.name }}</button>{% endif %}
+{% endfor %}
+</div>
+<div class="grid">
+{% for p in projects %}
+<article class="card" data-tags="{% for t in p.tags %}{{ t | slugify }} {% endfor %}">
+{% assign media_item = p %}{% assign media_class = "media--card" %}{% assign media_lazy = true %}
+{% include media.html %}
+<div class="card__body">
+{% assign tags_item = p %}{% include tags.html %}
+<h3 class="card__title"><a href="{{ p.url | relative_url }}">{{ p.title }}</a></h3>
+<p class="card__summary">{{ p.summary }}</p>
+<span class="card__link" aria-hidden="true">Open build log →</span>
+</div>
+</article>
+{% endfor %}
+</div>
+</section>

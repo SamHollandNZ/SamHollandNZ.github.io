@@ -1,0 +1,18 @@
+{% comment %}
+  Contact buttons. Rendered in the header bar on every page, after the
+  Projects and Contact links. Email is the one filled (amber) button; while
+  `email` is empty in _config.yml, LinkedIn takes the filled style instead.
+{% endcomment %}
+{% assign has_email = false %}{% if site.email and site.email != "" %}{% assign has_email = true %}{% endif %}
+{% if has_email %}
+<a class="btn btn--fill" href="mailto:{{ site.email }}">{% assign icon = "mail" %}{% include icon.html %}Email</a>
+{% endif %}
+{% if site.linkedin_url and site.linkedin_url != "" %}
+<a class="btn{% unless has_email %} btn--fill{% endunless %}" href="{{ site.linkedin_url }}" rel="noopener">{% assign icon = "external" %}{% include icon.html %}LinkedIn</a>
+{% endif %}
+{% if site.github_url and site.github_url != "" %}
+<a class="btn" href="{{ site.github_url }}" rel="noopener">{% assign icon = "external" %}{% include icon.html %}GitHub</a>
+{% endif %}
+{% if site.pdf_path and site.pdf_path != "" %}
+<a class="btn" href="{{ site.pdf_path | relative_url }}" download>{% assign icon = "download" %}{% include icon.html %}CV (PDF)</a>
+{% endif %}

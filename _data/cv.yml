@@ -1,0 +1,121 @@
+# ---------------------------------------------------------------------------
+# CV content for the /cv/ page. It mirrors the published PDF
+# (assets/sam-holland-cv.pdf, written in Word): when the PDF changes, copy the
+# new text in here so the two stay identical.
+# Do not add a phone number or home address here: this file is public.
+# ---------------------------------------------------------------------------
+
+updated: "November 2026"
+headline: "Electronics Engineer"
+
+# Details table beside the CV, in the PDF's order. A row with `url` is a link.
+# An Email row is added after LinkedIn automatically when `email` is set in
+# _config.yml.
+details:
+  - label: "LinkedIn"
+    value: "linkedin.com/in/s-holland-nz"
+    url: "https://www.linkedin.com/in/s-holland-nz"
+  - label: "Education"
+    value: "BE(Hons) first class – AUT"
+  - label: "Location"
+    value: "Auckland, New Zealand"
+  - label: "Passports"
+    value: "New Zealand, EU"
+  - label: "Portfolio"
+    value: "samhollandnz.github.io/portfolio/"
+    url: "/portfolio/"
+
+# Homepage intro line: "Citizen of NZ and the EU".
+citizenship:
+  - short: "NZ"
+  - short: "the EU"
+
+summary:
+  - >-
+    I am a hands-on Electronics Engineer with 18 months' professional experience
+    in full-stack circuit and hardware development for an energy storage
+    startup. In this role, I worked across PCB design, prototyping, CAD,
+    mechanical fabrication, embedded programming, system integration and
+    testing, with a particular focus on high-speed BLDC motor drives.
+  - >-
+    Electronics is a hobby as well as my chosen career, and I've been building
+    personal projects for over 12 years. I like taking an idea from concept and
+    design through to making the real thing. I enjoy learning new things and
+    applying that knowledge in practice.
+  - "I am looking for a hands-on role where I can turn concepts into real hardware."
+
+experience:
+  - role: "Electronics Engineer"
+    org: "EnergyBank"
+    place: "Auckland"
+    dates: "Jun 2025 – Nov 2026"
+    about:
+      - >-
+        Energy storage startup developing a novel compressed air energy storage
+        system. Sole electronics engineer in a team of five. My work spanned
+        full-stack hardware development, from research and electronic design
+        through PCB development, mechanical fabrication, software, system
+        integration and testing.
+      - >-
+        In this role, I often worked outside my core electronics expertise,
+        researching and learning about other areas of engineering, then applying
+        that knowledge in practice to solve problems and develop solutions.
+    groups:
+      - heading: "Electronics Engineering & PCB Design"
+        points:
+          - "Researched and designed VESC-based high-speed, high-power-density, water-cooled BLDC motor drives, including full electronic design, PCB design, preparation for fabrication, testing and validation."
+          - "Designed the electronic controller for an active magnetic levitation bearing, from initial research, circuit and PCB design through to fabrication by an external supplier."
+          - "Designed and built the electrical system and packaging for a portable battery box for use in live demonstrations of our prototype, with attention to both function and appearance."
+      - heading: "Mechanical Design & Fabrication"
+        points:
+          - "CAD design for both 3D-printed parts and machined components, applying DFM principles for both in-house fabrication and production by external suppliers."
+          - "Manually machined and 3D-printed parts for rapid development and prototyping, including turned and milled parts."
+          - "Adapted off-the-shelf BLDC motors for high-power operation."
+          - "Fabricated test rigs and supporting hardware, including enclosures, brackets and construction with aluminium extrusions."
+      - heading: "Software & Control"
+        points:
+          - "Developed control and monitoring software for test rigs and field testing."
+          - "MATLAB modelling."
+  - role: "Research Assistant"
+    org: "AUT summer internship"
+    place: "Auckland"
+    dates: "Nov 2024 – Mar 2025"
+    about:
+      - "Research into control of DC microgrids using nature-inspired metaheuristic optimisation."
+    points:
+      - "Modelled and simulated DC microgrids in MATLAB and Simulink."
+      - 'Authored the conference paper: Improved Secondary Layer Control of DC Microgrid Cluster with Hybrid PSO-GWO Optimization, IEEE TENSYMP 2025. DOI: <a href="https://doi.org/10.1109/TENSYMP63728.2025.11144982">10.1109/TENSYMP63728.2025.11144982</a>'
+  - role: "Software Developer"
+    org: "Abel Software"
+    place: "Auckland"
+    dates: "Jan – Feb 2023, Dec 2023 – Feb 2024"
+    about:
+      - "Abel develops enterprise resource planning (ERP) software for businesses."
+    points:
+      - "Development work including skins and user interfaces for ERP software."
+
+education:
+  - title: "Bachelor of Engineering (Honours), Electrical and Electronic Engineering"
+    detail: "First class honours."
+    org: "Auckland University of Technology (AUT)"
+    dates: "2025"
+
+# Each group has `proficient` and `working` (working knowledge) lists, or a
+# plain `items` list when the PDF gives no levels.
+skills:
+  - group: "Electronics"
+    proficient: ["Circuit and PCB design: KiCad", "PCB assembly, prototyping and rework", "Testing, troubleshooting and fault finding"]
+    working: ["Circuit and PCB design: Altium"]
+  - group: "CAD and Design"
+    proficient: ["SolidWorks and FreeCAD", "DFM for 3D printing"]
+    working: ["DFM for machined components"]
+  - group: "Other Practical Skills"
+    proficient: ["Soldering (SMT and THT)", "3D printing"]
+    working: ["CNC machining", "Manual turning and milling"]
+  - group: "Programming"
+    proficient: ["C / C++ for microcontrollers and embedded systems", "MATLAB"]
+    working: ["JavaScript (Node.js and web)", "C# (.NET applications)"]
+  - group: "AI-Assisted Development"
+    items: ["Claude Code", "OpenCode"]
+
+references: "References available on request."

@@ -1,0 +1,16 @@
+{% comment %}
+  Shows a project's video, image, or the striped placeholder.
+  Before including this file, assign three variables:
+    media_item   the project (or page) to show media for
+    media_class  "media--hero" or "media--card"
+    media_lazy   true to lazy-load the image, false for the first image on a page
+{% endcomment %}
+{% if media_item.video %}
+<video class="media {{ media_class }}" autoplay muted loop playsinline preload="metadata"{% if media_item.poster %} poster="{{ media_item.poster | relative_url }}"{% endif %} aria-label="{{ media_item.image_alt | default: media_item.title | escape }}">
+<source src="{{ media_item.video | relative_url }}" type="video/mp4">
+</video>
+{% elsif media_item.image %}
+<img class="media {{ media_class }}" src="{{ media_item.image | relative_url }}" alt="{{ media_item.image_alt | default: media_item.title | escape }}"{% if media_lazy %} loading="lazy"{% endif %}>
+{% else %}
+<div class="media media--placeholder {{ media_class }}" role="img" aria-label="No image yet for {{ media_item.title | escape }}"><span>Image to come</span></div>
+{% endif %}

@@ -1,0 +1,98 @@
+---
+layout: default
+title: CV
+permalink: /cv/
+summary: "CV of Sam Holland, electronics engineer in Auckland: experience, education and skills."
+---
+{% comment %}
+  Web version of the CV PDF (assets/sam-holland-cv.pdf). Content lives in
+  _data/cv.yml and follows the PDF section for section.
+{% endcomment %}
+{% assign cv = site.data.cv %}
+<article class="project cv">
+
+<a class="back-link" href="{{ '/portfolio/' | relative_url }}">← Projects</a>
+
+<header class="project__header">
+<div class="project__heading">
+<p class="eyebrow">CV · Updated {{ cv.updated }}</p>
+<h1 class="project__title">{{ site.first_name }} {{ site.last_name }}</h1>
+</div>
+<p class="project__summary">{{ cv.headline }}</p>
+</header>
+
+<div class="stripe-rule" aria-hidden="true"></div>
+
+<div class="project__layout">
+<aside class="specs" aria-label="Details">
+<table>
+<caption>Details</caption>
+<tbody>
+{% for d in cv.details %}
+<tr><th scope="row">{{ d.label }}</th><td>{% if d.url %}<a href="{% if d.url contains '://' %}{{ d.url }}{% else %}{{ d.url | relative_url }}{% endif %}">{{ d.value }}</a>{% else %}{{ d.value }}{% endif %}</td></tr>
+{% if d.label == "LinkedIn" and site.email and site.email != "" %}<tr><th scope="row">Email</th><td><a href="mailto:{{ site.email }}">{{ site.email }}</a></td></tr>{% endif %}
+{% endfor %}
+</tbody>
+</table>
+{% if site.pdf_path and site.pdf_path != "" %}<p class="cv__pdf"><a class="btn" href="{{ site.pdf_path | relative_url }}" download>{% assign icon = "download" %}{% include icon.html %}Download PDF</a></p>{% endif %}
+</aside>
+
+<div class="prose">
+<h2>Summary</h2>
+{% for para in cv.summary %}<p>{{ para }}</p>
+{% endfor %}
+
+<h2>Experience</h2>
+{% for job in cv.experience %}
+<section class="cv-entry">
+<h3>{{ job.role }}, {{ job.org }}</h3>
+<p class="cv-entry__meta">{{ job.place }} · {{ job.dates }}</p>
+{% for para in job.about %}<p>{{ para }}</p>
+{% endfor %}
+{% for g in job.groups %}<h4>{{ g.heading }}</h4>
+<ul>
+{% for pt in g.points %}<li>{{ pt }}</li>
+{% endfor %}</ul>
+{% endfor %}
+{% if job.points %}<ul>
+{% for pt in job.points %}<li>{{ pt }}</li>
+{% endfor %}</ul>{% endif %}
+</section>
+{% endfor %}
+
+<h2>Education</h2>
+{% for e in cv.education %}
+<section class="cv-entry">
+<h3>{{ e.title }}</h3>
+<p class="cv-entry__meta">{{ e.org }} · {{ e.dates }}</p>
+<p>{{ e.detail }}</p>
+</section>
+{% endfor %}
+
+<h2>Skills</h2>
+{% for g in cv.skills %}
+<section class="cv-entry">
+<h3>{{ g.group }}</h3>
+{% if g.proficient %}<h4>Proficient</h4>
+<ul>
+{% for s in g.proficient %}<li>{{ s }}</li>
+{% endfor %}</ul>{% endif %}
+{% if g.working %}<h4>Working knowledge</h4>
+<ul>
+{% for s in g.working %}<li>{{ s }}</li>
+{% endfor %}</ul>{% endif %}
+{% if g.items %}<ul>
+{% for s in g.items %}<li>{{ s }}</li>
+{% endfor %}</ul>{% endif %}
+</section>
+{% endfor %}
+
+<h2>References</h2>
+<p>{{ cv.references }}</p>
+
+<h2>Project Portfolio</h2>
+<p>Project portfolio available online at: <a href="{{ '/portfolio/' | relative_url }}">samhollandnz.github.io/portfolio/</a></p>
+</div>
+</div>
+
+</article>

@@ -1,0 +1,23 @@
+---
+# Landing page. For now it only sends visitors to the portfolio at /portfolio/.
+# Replace this file to give the site a different front page; every portfolio
+# address (/portfolio/, /portfolio/projects/..., /cv/) stays the same.
+layout: null
+permalink: /
+---
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>{{ site.first_name }} {{ site.last_name }}</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<link rel="canonical" href="{{ '/portfolio/' | absolute_url }}">
+<meta http-equiv="refresh" content="0; url={{ '/portfolio/' | relative_url }}">
+<script>location.replace("{{ '/portfolio/' | relative_url }}" + location.hash);</script>
+<style>body { margin: 0; padding: 32px; background: #0E0F11; color: #E8E6E1; font-family: system-ui, sans-serif; } a { color: #FFB000; }</style>
+</head>
+<body>
+<p>Redirecting to the <a href="{{ '/portfolio/' | relative_url }}">portfolio</a>.</p>
+</body>
+</html>

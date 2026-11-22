@@ -1,0 +1,70 @@
+# ---------------------------------------------------------------------------
+# Site settings. Everything a visitor sees that is about YOU lives here.
+# Replace every placeholder below before publishing.
+# ---------------------------------------------------------------------------
+
+first_name: "Sam"
+last_name: "Holland"
+role: "Electronics engineer"
+location: "Auckland NZ"
+
+# Used for the browser tab and search results.
+description: >-
+  Build log of electronics projects: radiation detectors, synthesisers,
+  magnetic bearings and high-voltage instruments.
+
+# Short bio shown beside your name on the homepage. Two or three sentences.
+bio: >-
+  Electronics engineer in Auckland, with a first-class BE (Hons) from AUT and
+  twelve years of hobby electronics. For 18 months I was the only electronics
+  engineer at EnergyBank, working on high-speed BLDC motor drives and active
+  magnetic bearings.
+
+# One line shown with the contact buttons at the top of the homepage.
+contact_line: "I am looking for a full-time role where I can turn concepts into finished hardware."
+
+# Contact buttons. Leave a value empty ("") to hide that button.
+email: ""              # off for now; set an enquiries address here to show the Email button and CV row
+linkedin_url: "https://www.linkedin.com/in/s-holland-nz"
+github_url: ""          # not in the CV; add "https://github.com/<handle>" to show the button
+# Downloadable CV, written in Word. When it changes, replace this file and
+# copy the new text into _data/cv.yml so the /cv/ page matches it.
+pdf_path: "/assets/sam-holland-cv.pdf"
+
+# Homepage slideshow. 0 = only changes when clicked. 6000 = every 6 seconds.
+# Minimum 5000. Auto-advance stops for good once a visitor clicks an arrow or bar.
+slideshow_autoplay_ms: 6000
+
+# ---------------------------------------------------------------------------
+# Jekyll settings. You should not need to change these.
+# For a user site (<username>.github.io) leave baseurl empty.
+# For a project site (<username>.github.io/<repo>) set baseurl: "/<repo>".
+# ---------------------------------------------------------------------------
+url: ""
+baseurl: ""
+
+collections:
+  projects:
+    output: true
+    permalink: /portfolio/projects/:name/
+
+defaults:
+  - scope:
+      path: ""
+      type: "projects"
+    values:
+      layout: "project"
+
+markdown: kramdown
+
+exclude:
+  - README.md
+  - STYLE_GUIDE.md
+  - Gemfile
+  - Gemfile.lock
+  - vendor
+  - scripts
+  - assets/img/README.md
+  # The CV source PDF contains a phone number and other details not meant for
+  # the public site. Keep it out of the build.
+  - "Sam Holland CV and Portfolio*.pdf"

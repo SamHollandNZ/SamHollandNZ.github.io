@@ -1,0 +1,11 @@
+{%- comment -%}
+Tag list for one project. Set `tags_item` (a project) before including.
+Pills with the full name on wide screens, lettered dots on narrow ones.
+{%- endcomment -%}
+{%- if tags_item.tags and tags_item.tags.size > 0 -%}
+<ul class="tags" aria-label="Tags">
+{%- for t in site.data.tags -%}{%- if tags_item.tags contains t.name -%}
+<li class="tag" style="--tag: {{ t.colour }}" title="{{ t.name }}"><span class="tag__letter" aria-hidden="true">{{ t.letter }}</span><span class="tag__name">{{ t.name }}</span></li>
+{%- endif -%}{%- endfor -%}
+</ul>
+{%- endif -%}

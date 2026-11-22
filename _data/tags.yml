@@ -1,0 +1,13 @@
+# Project tags. A project lists any of these names under `tags:` in its front
+# matter. The order here is the order tags are shown and the order of the
+# filter buttons. `letter` is what the round dot shows on small screens;
+# `colour` is the tag's colour (it needs to read on the dark panel).
+- name: Electrical
+  letter: E
+  colour: "#fccb17"
+- name: Mechanical
+  letter: M
+  colour: "#5cefff"
+- name: Software
+  letter: S
+  colour: "#ff5ca5"
