@@ -33,7 +33,7 @@ incident gamma ray, which makes the device energy-sensitive.
 
 ![Cut-away render of a small black PCB labelled SiPM breakout, with a black housing opened to show a yellow-green crystal wrapped in white layers, sitting on the SiPM]({{ '/assets/img/gamma-spectrometer-watch/sipm-breakout-render.jpg' | relative_url }})
 
-<p class="caption">Cutaway render of the SiPM breakout board, it shows the GAGG:Ce crystal (green) on top of the above the SiPM. with its PTFE reflector (white) and light-proof black polycarbonate cap. a mall foam pad (teal) presses the crystal against the sensor.</p>
+<p class="caption">Cutaway render of the SiPM breakout board, it shows the GAGG:Ce crystal (green) on top of the SiPM. with its PTFE reflector (white) and 3D-printed light-proof cap (black). a small foam pad (teal) presses the crystal against the SiPM.</p>
 
 The rest of the design is based around a low-power microcontroller and the same
 low-power Sharp memory display as the previous watch project.
